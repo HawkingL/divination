@@ -1,0 +1,140 @@
+/** 
+ * 清除所有默认样式（CSS Reset - Modern) 
+ * 使用 Sass 语法重构
+ */
+
+// ================== 基础变量 ==================
+$body-bg-color: #fff;
+$body-text-color: #000;
+$autofill-bg-color: #fff;
+
+// ================== 占位符、mixin ==================
+
+// 统一 box-sizing
+%border-box {
+    box-sizing: border-box;
+}
+
+// 表单控件基础样式
+%form-control-reset {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    @extend %border-box;
+}
+
+// 媒体自适应
+@mixin media-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-style: none;
+}
+
+// ================== reset 主体 ==================
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    @extend %border-box;
+  }
+
+// HTML5 display-role reset for older browsers
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    background: $body-bg-color;
+    color: $body-text-color;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+
+    &::before,
+    &::after {
+        content: '';
+        content: none;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// ================== 表单控件 ==================
+button,
+input,
+optgroup,
+select,
+textarea {
+    @extend %form-control-reset;
+}
+
+// 让按钮可点击
+button {
+    cursor: pointer;
+    background: none;
+}
+
+// ================== 媒体元素 ==================
+img,
+video {
+    @include media-fluid;
+}
+
+// ================== 链接 ==================
+a {
+    color: inherit;
+    text-decoration: none;
+    background: none;
+}
+
+// ================== 全局 box-sizing ==================
+*,
+*::before,
+*::after {
+    @extend %border-box;
+}
+
+// ================== 字体渲染优化 ==================
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// ================== 兼容 input 输入法边框 ==================
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    box-shadow: 0 0 0 1000px $autofill-bg-color inset;
+}
