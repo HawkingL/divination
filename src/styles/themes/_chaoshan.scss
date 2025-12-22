@@ -1,0 +1,21 @@
+@mixin theme-styles {
+    /** 主题切换必须用 CSS 变量而不能用 Sass 变量，是因为 Sass 在构建阶段就已经编译成普通 CSS，无法在浏览器运行时修改；而 CSS 变量存在于运行时，可以通过切换 data-theme 或 JS 动态修改，从而实现无刷新、实时的主题切换。**/
+    // 定义该主题下的 CSS 变量
+    --bg-image: url('/assets/images/cyberpunk/bg.jpg');
+    --primary-color: #00f0ff; // 霓虹蓝
+    --text-color: #fff;
+    --input-bg: rgba(0, 240, 255, 0.1);
+    --input-border: 1px solid #00f0ff;
+    --button-style: linear-gradient(90deg, #000, #00f0ff);
+    
+    // 具体的样式覆盖
+    .bg-layer {
+      background-image: var(--bg-image);
+      filter: hue-rotate(10deg); // 特殊滤镜
+    }
+  
+    h1 {
+      text-shadow: 0 0 10px var(--primary-color); // 霓虹发光文字
+      font-family: 'Orbitron', sans-serif; // 科技感字体
+    }
+  }

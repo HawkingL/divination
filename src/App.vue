@@ -1,15 +1,12 @@
 <script setup lang="ts">
+import HomeViewVue from './views/HomeView.vue';
+
 
 </script>
 
 <template>
-  <div class="app"></div>
+    <HomeViewVue></HomeViewVue>
 </template>
 
 <style scoped lang="scss">
-.app {
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-}
 </style>

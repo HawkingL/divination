@@ -11,6 +11,6 @@
 .ritual-vessel {
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: rgb(138, 93, 244);
 }
 </style>
